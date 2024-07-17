@@ -6,11 +6,10 @@ plugins {
 android {
     namespace "com.android.test.uibench"
     compileSdkVersion 33
-    buildToolsVersion "33.0.2"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
     }
