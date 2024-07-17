@@ -15,10 +15,10 @@ android_test {
     target_sdk_version: "31",
     min_sdk_version: "31",
     // omit gradle 'build' dir
-    srcs: ["app/src/**/*.java"],
+    srcs: ["app/src/main/java/**/*.java"],
     // use appcompat/support lib from the tree, so improvements/
     // regressions are reflected in test data
-    resource_dirs: ["res"],
+    resource_dirs: ["app/src/main/res"],
     static_libs: [
         "com.google.android.material_material",
         "androidx.legacy_legacy-support-v4",
