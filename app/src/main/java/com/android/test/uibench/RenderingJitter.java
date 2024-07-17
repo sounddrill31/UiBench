@@ -52,31 +52,25 @@ public class RenderingJitter extends Activity {
         sMetricsHandler = new Handler(thread.getLooper());
     }
 
-    private Handler mUpdateHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case R.id.jitter_mma:
-                    mJitterReport.setText((CharSequence) msg.obj);
-                    break;
-                case R.id.totalish_mma:
-                    mMostlyTotalFrameTimeReport.setText((CharSequence) msg.obj);
-                    break;
-                case R.id.ui_frametime_mma:
-                    mUiFrameTimeReport.setText((CharSequence) msg.obj);
-                    break;
-                case R.id.rt_frametime_mma:
-                    mRenderThreadTimeReport.setText((CharSequence) msg.obj);
-                    break;
-                case R.id.total_mma:
-                    mTotalFrameTimeReport.setText((CharSequence) msg.obj);
-                    break;
-                case R.id.graph:
-                    mGraph.addJitterSample(msg.arg1, msg.arg2);
-                    break;
-            }
+private Handler mUpdateHandler = new Handler() {
+    @Override
+    public void handleMessage(Message msg) {
+        int messageId = msg.what;
+        if (messageId == getResources().getIdentifier("jitter_mma", "id", getPackageName())) {
+            mJitterReport.setText((CharSequence) msg.obj);
+        } else if (messageId == getResources().getIdentifier("totalish_mma", "id", getPackageName())) {
+            mMostlyTotalFrameTimeReport.setText((CharSequence) msg.obj);
+        } else if (messageId == getResources().getIdentifier("ui_frametime_mma", "id", getPackageName())) {
+            mUiFrameTimeReport.setText((CharSequence) msg.obj);
+        } else if (messageId == getResources().getIdentifier("rt_frametime_mma", "id", getPackageName())) {
+            mRenderThreadTimeReport.setText((CharSequence) msg.obj);
+        } else if (messageId == getResources().getIdentifier("total_mma", "id", getPackageName())) {
+            mTotalFrameTimeReport.setText((CharSequence) msg.obj);
+        } else if (messageId == getResources().getIdentifier("graph", "id", getPackageName())) {
+            mGraph.addJitterSample(msg.arg1, msg.arg2);
         }
-    };
+    }
+};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
