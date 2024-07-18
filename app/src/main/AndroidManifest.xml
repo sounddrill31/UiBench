@@ -20,6 +20,7 @@
      package="com.android.test.uibench">
 
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.software.leanback" android:required="false" />
 
     <application android:allowBackup="false"
          android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
