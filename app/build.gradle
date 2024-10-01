@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace "com.android.test.uibench"
+    namespace "com.example.something"
     compileSdkVersion 33
 
     defaultConfig {
